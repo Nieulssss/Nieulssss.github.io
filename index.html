@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css">
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <header>
+        <h1>Niels STIEFVATER</h1>
+        <h2 data-i18n="subtitle">Développeur</h2>
+        <div class="fleche">
+            <button class="scroll">
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav>
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul>
+            <li><button data-target="#Moi" data-i18n="about">A propos de moi</button></li>
+            <li><button data-target="#Portfolio" data-i18n="portfolio">Portfolio</button></li>
+            <li><button data-target="#Parcours" data-i18n="education">Parcours</button></li>
+            <li><button data-target="#Experiences" data-i18n="experiences">Expériences</button></li>
+            <li><button data-target="#Contact" data-i18n="nav_contact">Me contacter</button></li>
+            <li class="lang-item"><button id="langFR" class="lang-btn" aria-label="Français"><span
+                        class="fi fi-fr"></span><span class="label">FR</span></button></li>
+            <li class="lang-item"><button id="langEN" class="lang-btn" aria-label="English"><span
+                        class="fi fi-gb"></span><span class="label">EN</span></button></li>
+            <li><button id="CV" data-i18n="cv_label">CV</button></li>
+        </ul>
+    </nav>
+
+    <section id="Moi">
+        <h2 data-i18n="about">A propos de moi</h2>
+        <ul>
+            <li>
+                <h2 data-i18n="infos">Infos et Contact</h2>
+                <p><i class="fas fa-flag"></i><span data-i18n="lang">Français</span></p>
+                <p><i class="fas fa-calendar-alt"></i><span data-i18n="birth">8 août 2004 (21 ans)</span></p>
+                <p><i class="fas fa-home"></i><span data-i18n="home">Saint-Claude (39), France</span></p>
+                <p><i class="fas fa-map-marker-alt"></i><span data-i18n="city">Annecy (74), France</span></p>
+                <div class="social-buttons">
+                    <a href="https://www.linkedin.com/in/niels-stiefvater-146946248/" target="_blank"
+                        class="social-btn linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/NielsGrrr" target="_blank" class="social-btn github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </li>
+            <li>
+                <h2 data-i18n="passions_title">Passions</h2>
+                <p><i class="fas fa-basketball-ball"></i> <span data-i18n="passion_basket">Basket</span></p>
+                <p><i class="fas fa-gamepad"></i> <span data-i18n="passion_videogames">Jeux vidéo</span></p>
+                <p><i class="fas fa-plane"></i> <span data-i18n="passion_travel">Voyages</span></p>
+            </li>
+            <li>
+                <h2 data-i18n="languages">Langues</h2>
+                <p><span class="fi fi-fr"></span><span data-i18n="french">Français : Langue maternelle</span></p>
+                <p><span class="fi fi-gb"></span><span data-i18n="english">Anglais : Intermédiaire supérieur (B2)</span>
+                </p>
+                <p><span class="fi fi-de"></span><span data-i18n="german">Allemand : Elémentaire (A1)</span></p>
+            </li>
+            <li class="skills">
+                <h2 data-i18n="skills">Compétences</h2>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="fab fa-java"></i> Java</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="70%" style="width: 0;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="devicon-csharp-plain"></i> C#</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="75%" style="width: 0;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="fab fa-python"></i> Python</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="60%" style="width: 0;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="65%" style="width: 0;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="fab fa-php"></i> PHP</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="65%" style="width: 0;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="devicon-laravel-plain"></i> Laravel</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="70%" style="width: 0;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="devicon-postgresql-plain"></i> PostgreSQL</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="80%" style="width: 0;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><i class="fab fa-github"></i> GitHub</div>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="80%" style="width: 0;"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="Portfolio">
+        <h2 data-i18n="portfolio">Portfolio</h2>
+        <button class="filter"><span data-i18n="filter">Filtrer</span>
+            <select name="filter" id="filter-tech">
+                <option value="all" data-i18n="all">Tous</option>
+                <option value="java">Java</option>
+                <option value="c#">C#</option>
+                <option value="python">Python</option>
+                <option value="laravel">Laravel</option>
+            </select>
+        </button>
+        <ul>
+            <li>
+                <h2>CUBE</h2>
+                <h3 data-i18n="proj_cube_desc">Reproduction du site Cube</h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_cube">Octobre 2025 - Janvier 2026</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_web">Site web</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    Laravel, Blade</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_univ">Projet universitaire</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_ongoing">En cours</span></p>
+                <p class="project-note" data-i18n="project_unavailable">Projet non visible pour le moment</p>
+                <a href="" data-i18n="see_project">Voir le projet</a>
+            </li>
+            <li>
+                <h2>Pilot</h2>
+                <h3 data-i18n="proj_pilot_desc">Application de gestion de produits</h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_pilot">Juin 2025</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_win_app">Application Windows</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    C#, WPF, PHPpgAdmin</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_univ">Projet universitaire</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_archived">Archivé</span></p>
+                <a href="https://github.com/NielsGrrr/Pilot" data-i18n="see_project">Voir le projet</a>
+            </li>
+            <li>
+                <h2>OGP'Lay</h2>
+                <h3 data-i18n="proj_ogp_desc">Algorithme de calcul de rentabilité</h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_ogp">Avril 2025</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_console_app">Application console</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    Python, Pulp</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_univ">Projet universitaire</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_archived">Archivé</span></p>
+                <a href="doc/Algo%20v2.py" data-i18n="see_project" target="_blank" download>Voir le projet</a>
+            </li>
+            <li>
+                <div class="project-img" style="background-image: url('img/moto.png');"></div>
+                <h2 data-i18n="proj_moto_title">Jeu Moto</h2>
+                <h3 data-i18n="proj_moto_desc">Jeu d'obstacles</h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_moto">Décembre 2024</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_game">Jeu vidéo</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    C#, WPF</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_univ">Projet universitaire</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_archived">Archivé</span></p>
+                <a href="https://github.com/mathis-lanfroy/Jeu_Moto" data-i18n="see_project">Voir le projet</a>
+            </li>
+            <li>
+                <h2 data-i18n="proj_monza_title">Monza</h2>
+                <h3 data-i18n="proj_monza_desc">Jeu console Java</h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_monza">Décembre 2023</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_console_app">Application console</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    Java</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_univ">Projet universitaire</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_archived">Archivé</span></p>
+                <a href="doc/monza.java" data-i18n="see_project" target="_blank" download>Voir le projet</a>
+            </li>
+            <li>
+                <div class="project-img" style="background-image: url('img/launcher.png');"></div>
+                <h2 data-i18n="proj_launcher_title">Launcher Minecraft</h2>
+                <h3 data-i18n="proj_launcher_desc">Launcher personnalisé</h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_launcher">Décembre 2016</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_win_app">Application Windows</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    Java</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_perso">Projet personnel</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_archived">Archivé</span></p>
+                <a href="https://github.com/NielsGrrr/LauncherExalik" data-i18n="see_project">Voir le projet</a>
+            </li>
+            <li>
+                <h2 data-i18n="proj_plugin_title">Plugins Minecraft</h2>
+                <h3 data-i18n="proj_plugin_desc">Plugins pour serveur Minecraft</h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_plugin">2016</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_plugin">Plugin Minecraft</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    Java, Bukkit API</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_perso">Projet personnel</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_archived">Archivé</span></p>
+                <p class="project-note" data-i18n="project_unavailable">Projet non visible pour le moment</p>
+                <a href="https://github.com/NielsGrrr/Plugin_Minecraft" data-i18n="see_project">Voir le projet</a>
+            </li>
+            <li>
+                <h2 data-i18n="proj_webdesign_title">Site Web</h2>
+                <h3 data-i18n="proj_webdesign_desc">Création d'un site HTML CSS JS dans le cadre de mon stage de 3ème
+                </h3>
+                <p><i class="fas fa-calendar-alt"></i> <span data-i18n="dates">Dates</span> : <span
+                        data-i18n="date_webdesign">Février 2019</span></p>
+                <p><i class="fas fa-layer-group"></i> <span data-i18n="type_label">Type</span> : <span
+                        data-i18n="type_web">Site web</span></p>
+                <p class="tech"><i class="fas fa-wrench"></i> <span data-i18n="technologies_label">Technologies</span> :
+                    HTML, CSS, JS</p>
+                <p><i class="fas fa-briefcase"></i> <span data-i18n="context_label">Contexte</span> : <span
+                        data-i18n="ctx_perso">Projet personnel</span></p>
+                <p><i class="fas fa-check-circle"></i> <span data-i18n="state_label">Etat</span> : <span
+                        data-i18n="state_deleted">Supprimé</span></p>
+                <p class="project-note" data-i18n="project_unavailable">Projet non visible pour le moment</p>
+                <a href="" data-i18n="see_project">Voir le projet</a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="Parcours">
+        <h2 data-i18n="education">Parcours</h2>
+        <ul>
+            <li>
+                <p data-i18n="date1">2024 - aujourd'hui</p>
+                <p data-i18n="desc1">2ème année de BUT Informatique <br>
+                    Parcours Réalisation d'applications : conception, developpement, validation</p>
+                <p data-i18n="school1">Universite Savoie Mont-Blanc - IUT Annecy (74)</p>
+            </li>
+            <li>
+                <p data-i18n="date2">2022 - 2024</p>
+                <p data-i18n="desc2">1ère année de Licence Sciences fondamentales spécalité Informatique</p>
+                <p data-i18n="school2">Université Marie et Louis Pasteur - Besançon (25)</p>
+            </li>
+            <li>
+                <p data-i18n="date3">2019 - 2022</p>
+                <p data-i18n="desc3">Baccalauréat Technologique <br>
+                    Sciences et Technologies de l'Industrie et du Développement Durable</p>
+                <p data-i18n="school3">Lycée Pré Saint-Sauveur - Saint-Claude (39)</p>
+            </li>
+        </ul>
+
+    </section>
+
+    <section id="Experiences">
+        <h2 data-i18n="experiences">Expériences</h2>
+        <ul>
+            <li>
+                <h2>Side et Adecco France</h2>
+                <p class="job" data-i18n="exp_side_job">Intérimaire</p>
+                <p class="location">Annecy (74)</p>
+                <p class="date" data-i18n="exp_side_date">Eté 2025 (3 mois)</p>
+                <p data-i18n="exp_side_desc1">Employé de magasin - Action</p>
+                <p data-i18n="exp_side_desc2">Manutentionnaire - Barbe déménagement</p>
+                <p data-i18n="exp_side_desc3">Convoyeur - Enterprise</p>
+            </li>
+
+            <li>
+                <h2>Vacheron Constantin</h2>
+                <p class="job" data-i18n="exp_vacheron_job">Intérimaire Stock - Repacking</p>
+                <p class="location">Le Brassus (Vaud)</p>
+                <p class="date" data-i18n="exp_vacheron_date">Juillet 2024 (1 mois)</p>
+                <p data-i18n="exp_vacheron_desc1">Manipulation de petits objets</p>
+                <p data-i18n="exp_vacheron_desc2">Assister l'équipe sur différentes missions</p>
+            </li>
+
+            <li>
+                <h2>Action</h2>
+                <p class="job" data-i18n="exp_action_job">CDI Étudiant - Employé de magasin</p>
+                <p class="location">Saint-Claude (39)</p>
+                <p class="date" data-i18n="exp_action_date">Avril 2024 - Mai 2025 (13 mois)</p>
+                <p data-i18n="exp_action_desc1">Mise en rayon</p>
+                <p data-i18n="exp_action_desc2">Gestion des stocks</p>
+                <p data-i18n="exp_action_desc3">Conseil client</p>
+                <p data-i18n="exp_action_desc4">Encaissement des ventes</p>
+            </li>
+
+            <li>
+                <h2>Adéquat</h2>
+                <p class="job" data-i18n="exp_adequat_job">Intérimaire</p>
+                <p class="location">Montréal-la-Cluse (01)</p>
+                <p class="date" data-i18n="exp_adequat_date">Eté 2023 (2 mois)</p>
+                <p data-i18n="exp_adequat_desc1">Opérateur - OMP Fonderie</p>
+                <p data-i18n="exp_adequat_desc2">Manutentionnaire - Grosfillex</p>
+            </li>
+
+            <li>
+                <h2>Intermarché</h2>
+                <p class="job" data-i18n="exp_intermarche_job">CDD - Employé de rayon</p>
+                <p class="location">Saint-Claude (39)</p>
+                <p class="date" data-i18n="exp_intermarche_date">Août 2022 (1 semaine)</p>
+                <p data-i18n="exp_intermarche_desc1">Mise en rayon</p>
+            </li>
+
+            <li>
+                <h2>Studio Couchouron</h2>
+                <p class="job" data-i18n="exp_couchouron_job">Stagiaire Webdesign</p>
+                <p class="location">Saint-Claude (39)</p>
+                <p class="date" data-i18n="exp_couchouron_date">Février 2019 (1 semaine)</p>
+                <p data-i18n="exp_couchouron_desc1">Création d'un site vitrine</p>
+                <p data-i18n="exp_couchouron_desc2">Création d'un logo</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="Contact">
+        <h2 data-i18n="contact_title">Me contacter</h2>
+
+        <div class="contact-container">
+            <form action="https://formspree.io/f/xzzlokkp" method="POST">
+                <div class="form-group">
+                    <label for="name" data-i18n="form_name">Nom</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-i18n="form_email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" data-i18n="form_message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span data-i18n="form_send">Envoyer</span> <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Niels STIEFVATER</p>
+    </footer>
+</body>
+<script src="translations.js" defer></script>
+<script src="main.js" defer></script>
+
+</html>

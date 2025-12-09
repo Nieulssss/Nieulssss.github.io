@@ -1,0 +1,549 @@
+/* --- VARIABLES & RESET --- */
+:root {
+    --bg-dark: #121212;
+    --bg-secondary: #1E1E1E;
+    --text-main: #Eaeaea;
+    --text-muted: #A0A0A0;
+    --accent: #FFB74D; /* Orange doux */
+    --accent-glow: rgba(255, 183, 77, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(12px);
+    --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+html {
+    background-color: var(--bg-dark);
+    font-family: 'Rubik', sans-serif;
+    color: var(--text-main);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(255, 183, 77, 0.05), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(66, 135, 245, 0.05), transparent 25%);
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* --- HEADER --- */
+header {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    text-align: center;
+    font-size: clamp(3rem, 8vw, 5rem); /* Responsive font size */
+    margin: 0;
+    padding: 0.2em 0.5em;
+    border: var(--glass-border);
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    /* Effet dégradé sur le texte */
+    background: linear-gradient(to right, #fff, var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+header h2 {
+    margin-top: 20px;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--accent);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    min-height: 1.2em;
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* FLÈCHE ANIMÉE */
+.fleche {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fleche button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    animation: bounce 2s infinite;
+}
+
+.fleche button span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-right: 3px solid var(--accent);
+    border-bottom: 3px solid var(--accent);
+    transform: rotate(45deg) translate(-2px, -2px);
+}
+
+.fleche button:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* --- NAVIGATION --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav.visible {
+    transform: translateY(0);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Pour mobile */
+    gap: 15px;
+    padding: 15px 0;
+    margin: 0;
+}
+
+/* Styles des boutons de nav */
+nav ul li button {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+nav ul li button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+nav ul li button:hover {
+    color: var(--text-main);
+}
+
+nav ul li button:hover::after {
+    width: 80%;
+}
+
+/* Langue Buttons */
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1) !important; /* Override previous border none */
+    background: rgba(255,255,255,0.05) !important;
+}
+
+.lang-btn:hover {
+    background: rgba(255,255,255,0.1) !important;
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: rgba(255, 183, 77, 0.15) !important;
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+}
+
+/* Bouton CV Spécial */
+#CV {
+    border: 1px solid var(--accent) !important;
+    border-radius: 5px;
+    color: var(--accent) !important;
+}
+
+#CV:hover {
+    background: var(--accent) !important;
+    color: #121212 !important;
+}
+
+/* --- SECTIONS COMMUNES --- */
+section {
+    padding: 100px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+section > h2 {
+    font-size: 2.8em;
+    margin-bottom: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #fff, var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Petit trait sous les titres */
+section > h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- A PROPOS (GRID SYSTEM) --- */
+#Moi ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+#Moi li {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+#Moi li:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+#Moi li h2 {
+    font-size: 1.5em;
+    color: var(--accent);
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+
+#Moi li p {
+    margin: 12px 0;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#Moi li p i, #Moi li p span.fi {
+    color: var(--accent);
+    width: 24px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* Compétences (Badge Style) */
+#Moi li.skills {
+    grid-column: 1 / -1; /* Prend toute la largeur */
+    display: flex;
+    flex-direction: column;
+}
+
+#Moi li.skills h2 {
+    margin-bottom: 25px;
+}
+
+/* On transforme les paragraphes en badges */
+#Moi li.skills p {
+    display: inline-flex;
+    background: rgba(255,255,255,0.05);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin: 5px 10px 5px 0;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+#Moi li.skills p:hover {
+    border-color: var(--accent);
+    background: rgba(255, 183, 77, 0.1);
+    color: var(--text-main);
+}
+
+/* --- PORTFOLIO --- */
+#Portfolio .filter {
+    display: block;
+    margin: 0 auto 40px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.2em;
+}
+
+#Portfolio select {
+    background: var(--bg-secondary);
+    color: var(--text-main);
+    border: 1px solid var(--accent);
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-left: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+#Portfolio ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+#Portfolio li {
+    background: var(--bg-secondary); /* Fallback */
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    border: var(--glass-border);
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    transition: var(--transition);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Portfolio li:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+}
+
+#Portfolio li h2 {
+    color: var(--text-main);
+    font-size: 1.5em;
+}
+
+
+/* --- PARCOURS (TIMELINE STYLE) --- */
+#Parcours ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    /* Ligne verticale */
+    border-left: 2px solid rgba(255,255,255,0.1);
+    margin-left: 20px;
+}
+
+#Parcours li {
+    margin-bottom: 50px;
+    margin-left: 30px;
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Point sur la timeline */
+#Parcours li::before {
+    content: '';
+    position: absolute;
+    left: -41px; /* Ajustement pour centrer sur la ligne */
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 3px solid var(--accent);
+    transition: var(--transition);
+}
+
+#Parcours li:hover::before {
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Styles du contenu parcours */
+#Parcours li p:first-child { /* Date */
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#Parcours li p:nth-child(2) { /* Description */
+    font-size: 1.3em;
+    color: var(--text-main);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+#Parcours li p:nth-child(3) { /* Ecole */
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* --- EXPERIENCES (CARD STYLE) --- */
+#Experiences ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+#Experiences li {
+    padding: 30px;
+    background: linear-gradient(to right, rgba(255, 183, 77, 0.05), transparent);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    transition: var(--transition);
+}
+
+#Experiences li:hover {
+    background: linear-gradient(to right, rgba(255, 183, 77, 0.1), transparent);
+    transform: translateX(10px);
+    box-shadow: -5px 0 20px rgba(255, 183, 77, 0.1);
+}
+
+#Experiences li h2 {
+    font-size: 1.4em;
+    color: var(--text-main);
+    margin: 0 0 5px 0;
+}
+
+#Experiences li p.job {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+#Experiences li p.location, #Experiences li p.date {
+    display: inline-block;
+    font-size: 0.85em;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+#Experiences li > p:not(.job):not(.location):not(.date) {
+    color: var(--text-muted);
+    margin: 5px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+/* Petits tirets pour les tâches */
+#Experiences li > p:not(.job):not(.location):not(.date)::before {
+    content: '▹';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    header h1 { font-size: 3rem; }
+    
+    nav ul { 
+        gap: 10px; 
+        padding: 10px;
+    }
+    
+    nav ul li button {
+        padding: 5px 10px;
+        font-size: 0.85em;
+    }
+
+    section { padding: 60px 15px; }
+    
+    section > h2 { font-size: 2em; }
+
+    #Parcours ul { border-left: none; margin-left: 0; }
+    #Parcours li { 
+        margin-left: 0; 
+        border-left: 2px solid var(--accent); 
+        padding-left: 20px; 
+    }
+    #Parcours li::before { display: none; } /* Cache les points sur mobile */
+    
+    #Moi ul, #Portfolio ul {
+        grid-template-columns: 1fr;
+    }
+}

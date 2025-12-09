@@ -1,0 +1,1033 @@
+/* ==========================================================================
+   1. VARIABLES & CONFIGURATION (THEME)
+   ========================================================================== */
+:root {
+    /* Palette "Cyberpunk Clean" */
+    --bg-dark: #0a0a0a;
+    /* Fond plus sombre */
+    --bg-secondary: #141414;
+    /* Fond cartes/sections */
+    --text-main: #F0F0F0;
+    /* Texte plus brillant */
+    --text-muted: #B0B0B0;
+    /* Texte secondaire */
+
+    /* Accentuation (Orange Néon) */
+    --accent: #FF9F1C;
+    --accent-glow: rgba(255, 159, 28, 0.4);
+
+    /* Glassmorphism Enhanced */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(16px);
+
+    /* Animation */
+    --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
+html {
+    background-color: var(--bg-dark);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Fond animé "Breathing" */
+    background:
+        radial-gradient(circle at 15% 50%, rgba(255, 159, 28, 0.08), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(66, 135, 245, 0.06), transparent 40%);
+    background-size: 200% 200%;
+    animation: bgBreath 15s ease-in-out infinite alternate;
+}
+
+@keyframes bgBreath {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+p {
+    line-height: 1.6;
+    /* Plus aéré pour la lecture */
+    letter-spacing: 0.02em;
+    /* Légèrement plus espacé */
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* --- Correction Bug Autocomplétion (Fond Blanc) --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-main);
+    -webkit-box-shadow: 0 0 0px 1000px #1E1E1E inset;
+    /* Force le fond sombre */
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: var(--text-main);
+}
+
+/* Titres de sections communs */
+section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+section>h2 {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    text-align: center;
+    color: var(--text-main);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section>h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    /* Dégradé moderne au lieu de couleur unie */
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 15px auto 0;
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   3. HEADER (HERO)
+   ========================================================================== */
+header {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    text-align: center;
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin: 0;
+    padding: 0.2em 0.5em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, #fff, #ccc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header h2 {
+    margin-top: 20px;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--accent);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    min-height: 1.2em;
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Animation Flèche */
+.fleche {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fleche button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    animation: bounce 2s infinite;
+}
+
+.fleche button span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-right: 3px solid var(--accent);
+    border-bottom: 3px solid var(--accent);
+    transform: rotate(45deg) translate(-2px, -2px);
+}
+
+.fleche button:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ==========================================================================
+   4. NAVIGATION
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav.visible {
+    transform: translateY(0);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 0;
+    margin: 0;
+    align-items: center;
+}
+
+nav ul li button {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    font-family: 'Outfit', sans-serif;
+}
+
+nav ul li button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent);
+    transition: var(--transition);
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+nav ul li button:hover {
+    color: var(--text-main);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+nav ul li button:hover::after {
+    width: 80%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background: var(--text-main);
+    border-radius: 10px;
+    transition: var(--transition);
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        padding: 15px 0;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+        padding: 0;
+    }
+
+    nav.open ul {
+        transform: translateX(0);
+    }
+
+    /* Hamburger Animation */
+    nav.open .hamburger span:first-child {
+        transform: rotate(45deg);
+    }
+
+    nav.open .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav.open .hamburger span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+}
+
+/* Boutons Langue & CV */
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: rgba(255, 183, 77, 0.15) !important;
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+}
+
+#CV {
+    border: 1px solid var(--accent) !important;
+    border-radius: 5px;
+    color: var(--accent) !important;
+}
+
+#CV:hover {
+    background: var(--accent) !important;
+    color: #121212 !important;
+}
+
+/* ==========================================================================
+   5. SECTION: À PROPOS (#Moi)
+   ========================================================================== */
+#Moi ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+#Moi li {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+#Moi li:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#Moi li h2 {
+    font-size: 1.4em;
+    color: var(--accent);
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+}
+
+#Moi li p {
+    margin: 10px 0;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95em;
+}
+
+#Moi li p i,
+#Moi li p span.fi {
+    color: var(--accent);
+    width: 25px;
+    text-align: center;
+    font-size: 1.1em;
+    flex-shrink: 0;
+}
+
+/* --- Boutons Réseaux Sociaux (LinkedIn/GitHub) --- */
+.social-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+
+.social-btn i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn:hover i {
+    transform: scale(1.1);
+}
+
+.social-btn.linkedin:hover {
+    background: rgba(0, 119, 181, 0.2);
+    border-color: #0077b5;
+    color: #0077b5;
+}
+
+.social-btn.github:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* --- Passions (Tags) --- */
+#Moi li:nth-child(2) {
+    display: block;
+}
+
+#Moi li:nth-child(2) p {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin: 0 8px 10px 0;
+    transition: var(--transition);
+}
+
+#Moi li:nth-child(2) p:hover {
+    background: var(--accent-glow);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* --- Compétences --- */
+#Moi li.skills {
+    grid-column: 1 / -1;
+    display: block;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.skill-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 150px;
+    /* Largeur fixe pour l'alignement */
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.skill-info i {
+    font-size: 1.3em;
+    color: var(--accent);
+    width: 25px;
+    text-align: center;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--accent-glow);
+    width: 0;
+    /* Animation start */
+    transition: width 1s ease-out;
+}
+
+/* Hover effect on skill item */
+.skill-item:hover .skill-info {
+    color: var(--accent);
+}
+
+.skill-item:hover .progress {
+    background: #ffb74d;
+    /* Lighter accent */
+}
+
+
+/* ==========================================================================
+   6. SECTION: PORTFOLIO
+   ========================================================================== */
+/* Filtre Capsule */
+#Portfolio .filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 50px;
+    padding: 10px 25px;
+    background: var(--bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    width: fit-content;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+}
+
+#Portfolio .filter:hover {
+    border-color: var(--accent);
+    color: var(--text-main);
+}
+
+/* Select custom */
+#Portfolio select {
+    background: transparent;
+    color: var(--accent);
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    padding-right: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFB74D%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 12px;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Grille Projets */
+#Portfolio ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+#Portfolio li {
+    position: relative;
+    background: var(--bg-secondary);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    min-height: 300px;
+    /* Transition fluide pour le hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Image Header dans la carte */
+.project-img {
+    width: calc(100% + 60px);
+    /* Largeur + padding gauche/droite (30px * 2) */
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    margin: -35px -30px 25px -30px;
+    /* Marges négatives pour coller aux bords */
+    border-radius: 16px 16px 0 0;
+    /* Arrondi uniquement en haut */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#Portfolio li:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    /* Effet Glow Orangé */
+    box-shadow: 0 10px 40px -10px rgba(255, 183, 77, 0.25);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+}
+
+#Portfolio li h2 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    width: 100%;
+}
+
+#Portfolio li h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    font-weight: 400;
+    margin: 0 0 25px 0;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+#Portfolio li p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 6px 0;
+    padding-left: 12px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.project-note {
+    color: #ff6b6b !important;
+    /* Rouge clair pour l'alerte */
+    font-style: italic;
+    border-left-color: #ff6b6b !important;
+    font-weight: 500;
+}
+
+/* Bouton Voir projet */
+#Portfolio li a {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 12px 0;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+#Portfolio li a::after {
+    content: '\f054';
+    /* FontAwesome Right Arrow */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+#Portfolio li a:hover {
+    color: var(--accent);
+}
+
+#Portfolio li a:hover::after {
+    transform: translateX(5px);
+}
+
+
+/* ==========================================================================
+   7. SECTION: PARCOURS (Timeline)
+   ========================================================================== */
+#Parcours ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    margin-left: 20px;
+}
+
+#Parcours li {
+    margin-bottom: 50px;
+    margin-left: 30px;
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+#Parcours li::before {
+    content: '';
+    position: absolute;
+    left: -41px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 3px solid var(--accent);
+    transition: var(--transition);
+}
+
+#Parcours li:hover::before {
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+#Parcours li p:first-child {
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#Parcours li p:nth-child(2) {
+    font-size: 1.3em;
+    color: var(--text-main);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+#Parcours li p:nth-child(3) {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+
+/* ==========================================================================
+   8. SECTION: EXPÉRIENCES
+   ========================================================================== */
+#Experiences ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+#Experiences li {
+    padding: 30px;
+    background: linear-gradient(to right, rgba(255, 183, 77, 0.05), transparent);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    transition: var(--transition);
+}
+
+#Experiences li:hover {
+    background: linear-gradient(to right, rgba(255, 183, 77, 0.1), transparent);
+    transform: translateX(10px);
+    box-shadow: -5px 0 20px rgba(255, 183, 77, 0.1);
+}
+
+#Experiences li h2 {
+    font-size: 1.4em;
+    color: var(--text-main);
+    margin: 0 0 5px 0;
+}
+
+#Experiences li p.job {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+#Experiences li p.location,
+#Experiences li p.date {
+    display: inline-block;
+    font-size: 0.85em;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+#Experiences li>p:not(.job):not(.location):not(.date) {
+    color: var(--text-muted);
+    margin: 5px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+#Experiences li>p:not(.job):not(.location):not(.date)::before {
+    content: '▹';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}
+
+
+/* ==========================================================================
+   9. SECTION: CONTACT (Formulaire)
+   ========================================================================== */
+#Contact .contact-container {
+    background: var(--bg-secondary);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.95em;
+    margin-left: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(18, 18, 18, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+    background: rgba(18, 18, 18, 0.9);
+}
+
+.submit-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+.submit-btn:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+
+/* ==========================================================================
+   11. RESPONSIVE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    nav ul {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav ul li button {
+        padding: 5px 10px;
+        font-size: 0.85em;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
+
+    section>h2 {
+        font-size: 2em;
+    }
+
+    #Moi ul,
+    #Portfolio ul {
+        grid-template-columns: 1fr;
+    }
+
+    #Moi li.skills p {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #Parcours ul {
+        border-left: none;
+        margin-left: 0;
+    }
+
+    #Parcours li {
+        margin-left: 0;
+        border-left: 2px solid var(--accent);
+        padding-left: 20px;
+    }
+
+    #Parcours li::before {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   12. ACCESSIBILITÉ & FOCUS
+   ========================================================================== */
+/* Indication visuelle claire pour la navigation au clavier */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
