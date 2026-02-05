@@ -103,7 +103,12 @@ const translations = {
         'exp_couchouron_desc2': 'Création d\'un logo',
         'proj_webdesign_title': 'Site Web',
         'proj_webdesign_desc': 'Création d\'un site HTML CSS JS',
-        'date_webdesign': 'Février 2019'
+        'date_webdesign': 'Février 2019',
+        'proj_nike_desc': 'Application Nike Store',
+        'type_ios_app': 'Application iOS',
+        'proj_monza_title': 'Monza',
+        'proj_monza_desc': 'Jeu console Java',
+        'date_monza': 'Décembre 2023'
     },
     en: {
         'subtitle': 'Developer',
@@ -209,6 +214,11 @@ const translations = {
         'exp_couchouron_desc2': 'Logo creation',
         'proj_webdesign_title': 'Website',
         'proj_webdesign_desc': 'Creation of an HTML CSS JS website',
-        'date_webdesign': 'February 2019'
+        'date_webdesign': 'February 2019',
+        'proj_nike_desc': 'Nike Store App',
+        'type_ios_app': 'iOS Application',
+        'proj_monza_title': 'Monza',
+        'proj_monza_desc': 'Java console game',
+        'date_monza': 'December 2023'
     }
 };
