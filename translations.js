@@ -108,7 +108,14 @@ const translations = {
         'type_ios_app': 'Application iOS',
         'proj_monza_title': 'Monza',
         'proj_monza_desc': 'Jeu console Java',
-        'date_monza': 'Décembre 2023'
+        'date_monza': 'Décembre 2023',
+        'proj_gameapi_title': 'API de Jeux',
+        'proj_gameapi_desc': 'Mini API de jeux',
+        'type_api': 'API REST',
+        'date_gameapi': 'Mars 2026',
+        'proj_clubmedapi_desc': 'API Backend pour Club Med',
+        'proj_clubmedclient_desc': 'Application Client Vue.js',
+        'date_clubmed': 'Mars 2026'
     },
     en: {
         'subtitle': 'Developer',
@@ -219,6 +226,13 @@ const translations = {
         'type_ios_app': 'iOS Application',
         'proj_monza_title': 'Monza',
         'proj_monza_desc': 'Java console game',
-        'date_monza': 'December 2023'
+        'date_monza': 'December 2023',
+        'proj_gameapi_title': 'Game API',
+        'proj_gameapi_desc': 'Mini game API',
+        'type_api': 'REST API',
+        'date_gameapi': 'March 2026',
+        'proj_clubmedapi_desc': 'Backend API for Club Med',
+        'proj_clubmedclient_desc': 'Vue.js Client Application',
+        'date_clubmed': 'March 2026'
     }
 };
