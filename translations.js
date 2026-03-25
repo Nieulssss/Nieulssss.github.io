@@ -115,7 +115,10 @@ const translations = {
         'date_gameapi': 'Mars 2026',
         'proj_clubmedapi_desc': 'API Backend pour Club Med',
         'proj_clubmedclient_desc': 'Application Client Vue.js',
-        'date_clubmed': 'Mars 2026'
+        'date_clubmed': 'Mars 2026',
+        'proj_twitter_title': 'Clone Twitter',
+        'proj_twitter_desc': 'Reproduction de l\'application Twitter',
+        'date_twitter': 'Mai 2026'
     },
     en: {
         'subtitle': 'Developer',
@@ -233,6 +236,9 @@ const translations = {
         'date_gameapi': 'March 2026',
         'proj_clubmedapi_desc': 'Backend API for Club Med',
         'proj_clubmedclient_desc': 'Vue.js Client Application',
-        'date_clubmed': 'March 2026'
+        'date_clubmed': 'March 2026',
+        'proj_twitter_title': 'Twitter Clone',
+        'proj_twitter_desc': 'Twitter Application Replica',
+        'date_twitter': 'May 2026'
     }
 };
